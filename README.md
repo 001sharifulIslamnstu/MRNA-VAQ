@@ -39,5 +39,18 @@ The code supports:
 
 
 
+## 3. Data Preparation
+
+The training code expects **preprocessed JSON/JSONL** files with entries of the form:
+
+```jsonc
+{
+  "image": "COCO_train2014_000000123456.jpg",  // relative to image_root
+  "question": "What color is the car?",
+  "answers": ["red", "red", "red", "blue", ...],  // 10 VQA-style annotations
+  "answer": "red",                  // majority answer (string)
+  "answer_id": 123,                 // index in answer vocabulary
+  "mask": [0, 1, 0, ..., 0]         // (optional) AGS mask over ViT patches (len = num_patches)
+}
 
 
